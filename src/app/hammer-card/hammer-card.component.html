@@ -1,0 +1,28 @@
+<mat-card class="example-card" [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState()">
+  <!--
+    mat-card reference: https://material.angular.io/components/card/overview
+    
+    mat-card attribute notes:
+        - [@cardAnimator] is targeting the animation decorator from hammer-card.component.ts
+        - (@cardAnimator.done) is an event from Angular which triggers the method in the string once the animation's done.
+        - (swipe) are hammerjs-based touch events.
+
+    Other Animation Attributes (Note that swipeup & swipedown events are disabled by default) 
+    (swipeleft)="startAnimation('slideOutLeft'" (swiperight)="startAnimation('zoomOutRight')" ,
+  (swipeup)="startAnimation('rotateOutUpRight')" (swipedown)="startAnimation('flipOutY')"
+    -->
+
+  <mat-card-content>
+    <img mat-card-image src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Swipable Angular Logo">
+    <h2>Learn about web app animations with Angular!</h2>
+  </mat-card-content>
+
+  <h3>Click on Animation Buttons!</h3>
+  <!-- Here's where we start a specific animation on a user's interaction -->
+  <mat-card-actions>
+    <button color="accent" mat-raised-button (tap)="startAnimation('swing')">Swing</button>
+    <button color="accent" mat-raised-button (tap)="startAnimation('jello')">Jello</button>
+    <button color="accent" mat-raised-button (tap)="startAnimation('zoomOutRight')">Zoom</button>
+    <button color="accent" mat-raised-button (tap)="startAnimation('slideOutLeft')">Slide</button>
+  </mat-card-actions>
+</mat-card>
